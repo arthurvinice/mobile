@@ -1,74 +1,74 @@
-import { Image, StyleSheet, Platform } from 'react-native';
-
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
+import { StyleSheet, Platform, Linking } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import ParallaxScrollView from '@/components/ParallaxScrollView';
+import { Image } from 'react-native';
 
-export default function HomeScreen() {
+export default function InfoScreen() {
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
+      headerBackgroundColor={{ light: '#FCE4B5', dark: '#2C1A00' }}
       headerImage={
-      <ThemedView style={styles.divLogo}>
-        <Image
-          source={require('@/assets/images/arthurlanches.jpeg')}
-          style={styles.mainLogo}
-        />
-      </ThemedView>
-        
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Seja bem-vindo a Arthur Lanches!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Salada Pequena - 100ml</ThemedText>
+        <ThemedView style={styles.divLogo}>
+          <Image
+            source={require('@/assets/images/arthurlanches.jpeg')}
+            style={styles.mainLogo}
+          />
+        </ThemedView>
+      }
+    >
+      <ThemedView style={styles.container}>
+        <ThemedText type="title">Arthur Lanches</ThemedText>
+
+        <ThemedText type="subtitle">📍 Endereço</ThemedText>
         <ThemedText>
-          Frutas: 
-          <ThemedText type="defaultSemiBold">
-            {'\n'}- Abacaxi
-            {'\n'}- Maçã
-            {'\n'}- Banana
-            {'\n'}- Uva
-            {'\n'}- Morango
-            {'\n'}- VALOR: <ThemedText type='defaultSemiBold'>R$5,00</ThemedText> 
-          </ThemedText>{' '}
+          Rua das Goiabeiras, nº 123
+          {'\n'}Bairro Centro
+          {'\n'}Currais Novos - RN
+          {'\n'}CEP: 59380-000
         </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Vitamina 300ml</ThemedText>
+
+        <ThemedText type="subtitle" style={styles.sectionSpacing}>🕒 Horário de Funcionamento</ThemedText>
         <ThemedText>
-          Frutas: 
-          <ThemedText type="defaultSemiBold">
-            {'\n'}- Abacaxi
-            {'\n'}- Maçã
-            {'\n'}- Banana
-            {'\n'}- Uva
-            {'\n'}- Morango
-            {'\n'}- VALOR: <ThemedText type='defaultSemiBold'>R$10,00</ThemedText> 
-          </ThemedText>{' '}
+          Segunda a Sábado: 08h às 22h
+          {'\n'}Domingos e feriados: 14h às 20h
         </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Sanduíche Natural 200g</ThemedText>
-        <ThemedText type='defaultSemiBold'>VALOR: R$10,00</ThemedText>
+
+        <ThemedText type="subtitle" style={styles.sectionSpacing}>📞 Contato</ThemedText>
+        <ThemedView style={styles.sectionPhone}>
+          <ThemedText>Email: </ThemedText>
+          <ThemedText style={styles.link} onPress={() => Linking.openURL('https://wa.me/5584999998888')}>
+            (84) 4002-8922
+          </ThemedText>
+        </ThemedView>
+        <ThemedView style={styles.sectionMail}>
+          <ThemedText>Email: </ThemedText>
+          <ThemedText
+            style={styles.link}
+            onPress={() => Linking.openURL('mailto:arthurlanches@email.com')}
+          >
+            arthurlanches@email.com
+          </ThemedText>
+        </ThemedView>
+
       </ThemedView>
     </ParallaxScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+  container: {
+    gap: 12,
+    paddingBottom: 20,
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  sectionSpacing: {
+    marginTop: 16,
   },
-  divLogo:{
+  link: {
+    color: '#007AFF',
+    textDecorationLine: 'underline',
+  },
+  divLogo: {
     height: 250,
     width: '100%',
     position: 'absolute',
@@ -87,5 +87,15 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     position: 'absolute',
+  },
+  sectionMail: {
+    flexDirection: 'row',
+    alignItems: 'center', 
+    flexWrap: 'wrap' 
+  },
+  sectionPhone: {
+    flexDirection: 'row',
+    alignItems: 'center', 
+    flexWrap: 'wrap' 
   },
 });
