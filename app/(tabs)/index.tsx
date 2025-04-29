@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   divLogo:{
-    height: 178,
+    height: 250,
     width: '100%',
     position: 'absolute',
     top: 0,
@@ -82,8 +82,8 @@ const styles = StyleSheet.create({
     }),
   },
   mainLogo: {
-    height: 178,
-    width: 290,
+    height: 350,
+    width: '100%',
     bottom: 0,
     left: 0,
     position: 'absolute',
