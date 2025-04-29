@@ -42,9 +42,9 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="teste"
+        name="info"
         options={{
-          title: 'Teste',
+          title: 'Informações',
           tabBarIcon: ({ color }) => <AntDesign name="infocirlceo" size={24} color="white" />,
         }}
       />
