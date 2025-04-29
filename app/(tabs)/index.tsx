@@ -51,8 +51,8 @@ export default function HomeScreen() {
         </ThemedText>
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Sanduíche Natural</ThemedText>
-
+        <ThemedText type="subtitle">Sanduíche Natural 200g</ThemedText>
+        <ThemedText type='defaultSemiBold'>VALOR: R$10,00</ThemedText>
       </ThemedView>
     </ParallaxScrollView>
   );
